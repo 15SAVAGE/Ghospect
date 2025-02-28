@@ -15,43 +15,6 @@ window.addEventListener("scroll", () => {
 });
 
 
-function generatePixelTransition() {
-    const width = window.innerWidth; 
-    const height = 250;
-    const minSquareSize = 15;
-    const maxSquareSize = 20; 
-    let svg = `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">`;
-
-
-    const rows = Math.ceil(height / maxSquareSize);
-
-    for (let row = 0; row < rows; row++) {
-
-        const density = Math.pow(1 - (row / rows), 2);
-
-        for (let i = 0; i < width; i += maxSquareSize) {
-
-            const squareSize = Math.floor(Math.random() * (maxSquareSize - minSquareSize + 1)) + minSquareSize;
-
-            if (Math.random() > density) {
-                const y = row * maxSquareSize; 
-                svg += `<rect x="${i}" y="${y}" width="${squareSize}" height="${squareSize}" fill="%23121212"/>`;
-            }
-        }
-    }
-
-    svg += `</svg>`;
-
-    const encodedSvg = btoa(svg);
-    const dataUri = `data:image/svg+xml;base64,${encodedSvg}`;
-
-    document.querySelector('.pixel-transition').style.backgroundImage = `url("${dataUri}")`;
-}
-
-window.addEventListener("load", generatePixelTransition);
-
-
-
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -62,7 +25,47 @@ document.addEventListener('DOMContentLoaded', function() {
         const answer = item.querySelector('.faq-answer');
 
         question.addEventListener('click', () => {
-            item.classList.toggle('active');
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = '0';
+                }
+            });
+
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+                answer.style.maxHeight = '0'; 
+            } else {
+                item.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px'; 
+            }
         });
+    });
+});
+
+
+// приведения двигаюца
+document.addEventListener('DOMContentLoaded', function() {
+    const ghosts = document.querySelectorAll('.ghost');
+
+    ghosts.forEach(ghost => {
+        const floatDuration = Math.random() * 5 + 3;
+        const moveSideDuration = Math.random() * 5 + 4;
+
+        const moveSideDistance = Math.random() * 200 + 50; 
+        const moveSideDirection = Math.random() > 0.5 ? 1 : -1; 
+
+        ghost.style.animation = `
+            float ${floatDuration}s infinite ease-in-out alternate,
+            moveSide ${moveSideDuration}s infinite ease-in-out alternate
+        `;
+
+        const styleSheet = document.styleSheets[0];
+        styleSheet.insertRule(`
+            @keyframes moveSide {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(${moveSideDistance * moveSideDirection}px); }
+            }
+        `, styleSheet.cssRules.length);
     });
 });
