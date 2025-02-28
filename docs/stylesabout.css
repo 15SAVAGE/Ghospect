@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     background-color: #121212;
     color: #e0e0e0;
@@ -10,7 +9,6 @@ body {
     min-height: 100vh;
 }
 
-/* Header Styles */
 header {
     background-color: rgba(18, 18, 18, 0.9);
     padding: 11.25px 22.5px;
@@ -37,10 +35,21 @@ header .logo:hover {
     transform: scale(1.05);
 }
 
-header .logo img {
-    height: 56.25px;
-    display: block;
-    transition: transform 0.3s ease;
+header .logo .logo-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00BFFF;
+}
+
+header .logo .logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 header .logo .logo-text {
@@ -50,7 +59,7 @@ header .logo .logo-text {
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     position: relative;
-    background: linear-gradient(to right, #ffffff 50%, #ff8c42 50%); /* Оранжевый */
+    background: linear-gradient(to right, #ffffff 50%, #00BFFF 50%);
     background-size: 200% 100%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -89,7 +98,7 @@ header nav ul li a {
     transition: color 0.3s ease;
     border-radius: 5px;
     position: relative;
-    background: linear-gradient(to right, #ff8c42 50%, #e0e0e0 50%); /* Оранжевый */
+    background: linear-gradient(to right, #00BFFF 50%, #e0e0e0 50%);
     background-size: 200% 100%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -103,16 +112,16 @@ header nav ul li a:hover {
 
 header nav ul li a.about-link {
     text-decoration: underline;
-    text-decoration-color: #ff8c42; /* Оранжевый */
+    text-decoration-color: #00BFFF;
     text-underline-offset: 5.625px;
 }
 
 header nav ul li a:hover {
-    color: #ff8c42; /* Оранжевый */
+    color: #00BFFF;
 }
 
 header .cta-button {
-    background-color: #ff8c42; /* Оранжевый */
+    background-color: #00BFFF;
     color: #121212;
     padding: 10px 20px;
     border-radius: 25px;
@@ -127,12 +136,11 @@ header .cta-button {
 }
 
 header .cta-button:hover {
-    background-color: #e67332; /* Темнее оранжевый */
+    background-color: #009ACD;
     color: #ffffff;
     transform: scale(1.05);
 }
 
-/* Main Content Styles */
 main {
     padding-top: 100px;
     padding: 20px;
@@ -154,7 +162,7 @@ h1 {
 h2 {
     font-size: 24px;
     margin-top: 20px;
-    color: #ff8c42; /* Оранжевый */
+    color: #00BFFF;
 }
 
 p {
@@ -162,7 +170,6 @@ p {
     color: #e0e0e0;
 }
 
-/* About Section Styles */
 #About {
     text-align: center;
     padding: 40px 20px;
@@ -172,7 +179,7 @@ p {
     max-width: 800px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     animation: dropDownWithBounce 1.5s ease-in-out forwards;
-    opacity: 0; /* Начальное состояние — невидимый */
+    opacity: 0;
 }
 
 .about-title {
@@ -185,24 +192,11 @@ p {
 }
 
 @keyframes dropDownWithBounce {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    70% {
-        transform: translateY(0); /* Падение до конечной позиции */
-        opacity: 1;
-    }
-    80% {
-        transform: translateY(-20px); /* Подпрыгивание вверх */
-    }
-    90% {
-        transform: translateY(10px); /* Падение вниз */
-    }
-    100% {
-        transform: translateY(0); /* Окончательное приземление */
-        opacity: 1;
-    }
+    0% { transform: translateY(-100%); opacity: 0; }
+    70% { transform: translateY(0); opacity: 1; }
+    80% { transform: translateY(-20px); }
+    90% { transform: translateY(10px); }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
 .about-content {
@@ -218,22 +212,21 @@ p {
 }
 
 .about-content strong {
-    color: #ff8c42; /* Оранжевый */
+    color: #00BFFF;
     font-weight: bold;
 }
 
 .about-content em {
     font-style: italic;
-    color: #ff8c42; /* Оранжевый */
+    color: #00BFFF;
 }
 
-/* FAQ Styles */
 .faq-item {
     margin-bottom: 20px;
     border: 1px solid #ffffff;
     overflow: hidden;
     background-color: #1f1f1f;
-    border-radius: 5px; /* Добавим скругление углов */
+    border-radius: 5px;
 }
 
 .faq-question {
@@ -244,16 +237,16 @@ p {
     align-items: center;
     background-color: #1f1f1f;
     font-family: 'Montserrat', sans-serif;
-    transition: background-color 0.3s ease; /* Плавное изменение фона */
+    transition: background-color 0.3s ease;
 }
 
 .faq-question:hover {
-    background-color: #2c2c2c; /* Изменение фона при наведении */
+    background-color: #2c2c2c;
 }
 
 .faq-question h2 {
     margin: 0;
-    color: #ff8c42; /* Оранжевый */
+    color: #00BFFF;
     font-size: 18px;
     display: flex;
     align-items: center;
@@ -266,7 +259,7 @@ p {
     height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 10px solid #ff8c42; /* Оранжевый */
+    border-top: 10px solid #00BFFF;
     transition: transform 0.3s ease;
 }
 
@@ -277,16 +270,16 @@ p {
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-out; /* Плавное изменение высоты */
+    transition: max-height 0.5s ease-out;
     background-color: #2c2c2c;
     border-top: 1px solid #ffffff;
     font-family: 'Montserrat', sans-serif;
-    padding: 0 15px; /* Начальные отступы */
+    padding: 0 15px;
 }
 
 .faq-answer p {
     margin: 0;
-    padding: 15px 0; /* Отступы внутри текста */
+    padding: 15px 0;
     color: #e0e0e0;
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
@@ -294,11 +287,10 @@ p {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 500px; /* Максимальная высота для плавного раскрытия */
-    padding: 15px; /* Отступы при раскрытии */
+    max-height: 500px;
+    padding: 15px;
 }
 
-/* Footer Styles */
 footer {
     background-color: #000000;
     font-family: 'Montserrat', sans-serif;
@@ -306,7 +298,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     width: 100%;
-    margin-top: auto; /* Прижимаем footer к низу */
+    margin-top: auto;
 }
 
 .footer-links {
@@ -325,7 +317,6 @@ footer {
     color: #ffffff;
 }
 
-/* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     header {
         padding: 10px;
@@ -429,7 +420,6 @@ footer {
     }
 }
 
-/* Ghosts and Fog Styles */
 .ghosts {
     position: fixed;
     width: 100%;
