@@ -47,7 +47,7 @@ header .logo .logo-circle {
     background-color: #00BFFF;
     object-fit: cover;
     outline: 0.3px solid white;
-    outline-offset: 2px;
+    outline-offset: 5px;
     border-radius: 50%;
 }
 
