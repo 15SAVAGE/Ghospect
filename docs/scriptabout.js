@@ -31,13 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     otherItem.querySelector('.faq-answer').style.maxHeight = '0';
                 }
             });
-
             if (item.classList.contains('active')) {
                 item.classList.remove('active');
                 answer.style.maxHeight = '0'; 
             } else {
                 item.classList.add('active');
-                answer.style.maxHeight = answer.scrollHeight + 'px'; 
+                answer.style.maxHeight = answer.scrollHeight + 'px';
             }
         });
     });
