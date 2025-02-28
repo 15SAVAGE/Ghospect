@@ -46,19 +46,15 @@ document.addEventListener('DOMContentLoaded', function() {
 // приведения двигаюца
 document.addEventListener('DOMContentLoaded', function() {
     const ghosts = document.querySelectorAll('.ghost');
-
     ghosts.forEach(ghost => {
         const floatDuration = Math.random() * 5 + 3;
         const moveSideDuration = Math.random() * 5 + 4;
-
         const moveSideDistance = Math.random() * 200 + 50; 
         const moveSideDirection = Math.random() > 0.5 ? 1 : -1; 
-
         ghost.style.animation = `
             float ${floatDuration}s infinite ease-in-out alternate,
             moveSide ${moveSideDuration}s infinite ease-in-out alternate
         `;
-
         const styleSheet = document.styleSheets[0];
         styleSheet.insertRule(`
             @keyframes moveSide {
