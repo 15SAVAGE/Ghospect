@@ -291,7 +291,7 @@ p {
 }
 
 .faq-item.active .faq-question h2::before {
-    transform: rotate(90deg);
+    transform: rotate(135deg);
 }
 
 .faq-answer {
